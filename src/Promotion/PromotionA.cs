@@ -14,7 +14,12 @@ namespace Promotion
 
         public int Apply(IList<IProduct> products)
         {
-            throw new NotImplementedException();
+            var product = products[0];
+            var promotionalValue = (int) Math.Floor((double)(product.ProductCount / myMinimumProductInCartToAvailPromotion));
+
+            var totalValueOfProductA = (promotionalValue * myPromotionalPrice) + 
+                                ((product.ProductCount % myMinimumProductInCartToAvailPromotion) * product.ProductValue);
+            return totalValueOfProductA;
         }
     }
 }

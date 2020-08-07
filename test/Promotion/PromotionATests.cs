@@ -13,7 +13,7 @@ public class PromotionATests
         var promotion = new Promotion.PromotionA();
         var totalValueOfProduct = promotion.Apply(products);
 
-        Assert.Equal(totalValueOfProduct, 100);
+        Assert.Equal(100, totalValueOfProduct);
     }
 
     [Fact]
@@ -24,7 +24,7 @@ public class PromotionATests
         var promotion = new Promotion.PromotionA();
         var totalValueOfProduct = promotion.Apply(products);
 
-        Assert.Equal(totalValueOfProduct, 130);
+        Assert.Equal(130, totalValueOfProduct);
     }
 
     [Fact]
@@ -35,15 +35,15 @@ public class PromotionATests
         var promotion = new Promotion.PromotionA();
         var totalValueOfProduct = promotion.Apply(products);
 
-        Assert.Equal(totalValueOfProduct, 230);
+        Assert.Equal(230, totalValueOfProduct);
     }
 
     private static IList<IProduct> SetupProduct(string productName, int productValue, int productCount)
     {
         var product = new Mock<Product.IProduct>();
-        product.Setup(p => p.ProductName).Returns("ProductA");
-        product.Setup(p => p.ProductValue).Returns(50);
-        product.Setup(p => p.ProductCount).Returns(2);
+        product.Setup(p => p.ProductName).Returns(productName);
+        product.Setup(p => p.ProductValue).Returns(productValue);
+        product.Setup(p => p.ProductCount).Returns(productCount);
 
         IList<Product.IProduct> products = new List<Product.IProduct>() { product.Object };
         return products;

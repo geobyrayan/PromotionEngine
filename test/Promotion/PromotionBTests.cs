@@ -8,34 +8,34 @@ public class PromotionBTests
     [Fact]
     public void Apply_WithLessThanMinimumProductForPromotionToBeAvailed_NoPromotionApplied()
     {
-        IList<IProduct> products = SetupProduct("ProductB", 50, 2);
+        IList<IProduct> products = SetupProduct("ProductB", 30, 1);
 
         var promotion = new Promotion.PromotionB();
         var totalValueOfProduct = promotion.Apply(products);
 
-        Assert.Equal(totalValueOfProduct, 100);
+        Assert.Equal(30, totalValueOfProduct);
     }
 
     [Fact]
     public void Apply_WithMinimumProductForPromotionToBeAvailed_PromotionApplied()
     {
-        IList<IProduct> products = SetupProduct("ProductB", 50, 3);
+        IList<IProduct> products = SetupProduct("ProductB", 30, 2);
 
         var promotion = new Promotion.PromotionB();
         var totalValueOfProduct = promotion.Apply(products);
 
-        Assert.Equal(totalValueOfProduct, 130);
+        Assert.Equal(45, totalValueOfProduct);
     }
 
     [Fact]
     public void Apply_WithMoreThanMinimumProductForPromotionToBeAvailed_PromotionAppliedForRelevantProducts()
     {
-        IList<IProduct> products = SetupProduct("ProductB", 50, 5);
+        IList<IProduct> products = SetupProduct("ProductB", 30, 3);
 
         var promotion = new Promotion.PromotionB();
         var totalValueOfProduct = promotion.Apply(products);
 
-        Assert.Equal(totalValueOfProduct, 230);
+        Assert.Equal(75, totalValueOfProduct);
     }
 
     private static IList<IProduct> SetupProduct(string productName, int productValue, int productCount)
