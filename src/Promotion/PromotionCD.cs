@@ -12,7 +12,30 @@ namespace Promotion
 
         public int Apply(IList<Product.IProduct> products)
         {
-            throw new NotImplementedException();
+            var productC = products.Where(product => product.ProductName.Equals("ProductC")).SingleOrDefault();
+            var productD = products.Where(product => product.ProductName.Equals("ProductD")).SingleOrDefault();
+
+            var totalUnitsC = productC.ProductCount;
+            var totalUnitsD = productD.ProductCount;
+
+            var leastValuedProduct = Math.Min(totalUnitsC, totalUnitsD);
+            var maxValueProduct = Math.Max(totalUnitsC, totalUnitsD);
+
+            var totalValueOfProducts = 0;
+            if (totalUnitsC > totalUnitsD)
+            {
+                totalValueOfProducts += ((leastValuedProduct * myPromotionalPrice) + ((maxValueProduct - leastValuedProduct) * productC.ProductValue));
+            }
+            else if (totalUnitsD > totalUnitsC)
+            {
+                totalValueOfProducts += ((leastValuedProduct * myPromotionalPrice) + ((maxValueProduct - leastValuedProduct) * productD.ProductValue));
+            }
+            else
+            {
+                totalValueOfProducts += (leastValuedProduct * myPromotionalPrice);
+            }
+
+            return totalValueOfProducts;
         }
     }
 }
