@@ -1,0 +1,14 @@
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/obj/Debug/netcoreapp2.1/PromotionEngine.csprojAssemblyReference.cache
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/obj/Debug/netcoreapp2.1/PromotionEngine.csproj.CoreCompileInputs.cache
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/obj/Debug/netcoreapp2.1/PromotionEngine.AssemblyInfoInputs.cache
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/obj/Debug/netcoreapp2.1/PromotionEngine.AssemblyInfo.cs
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/bin/Debug/netcoreapp2.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/bin/Debug/netcoreapp2.1/xunit.runner.reporters.netcoreapp10.dll
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/bin/Debug/netcoreapp2.1/xunit.runner.utility.netcoreapp10.dll
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/bin/Debug/netcoreapp2.1/PromotionEngine.deps.json
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/bin/Debug/netcoreapp2.1/PromotionEngine.runtimeconfig.json
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/bin/Debug/netcoreapp2.1/PromotionEngine.runtimeconfig.dev.json
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/bin/Debug/netcoreapp2.1/PromotionEngine.dll
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/bin/Debug/netcoreapp2.1/PromotionEngine.pdb
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/obj/Debug/netcoreapp2.1/PromotionEngine.dll
+/Users/antogeobyrayan/Public/Projects/PromotionEngine/obj/Debug/netcoreapp2.1/PromotionEngine.pdb
