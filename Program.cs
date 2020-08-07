@@ -28,10 +28,10 @@ namespace Promotion
             Product.IProduct productD = new Product.ProductD(totalUnitD);
             orderDetails.AddBasket(productD);
 
-            //PromotionEngine promotionEngine = new PromotionEngine(orderDetails);
-            //var discountedAmount = promotionEngine.ApplyPromotion();
+            PromotionEngine promotionEngine = new PromotionEngine(orderDetails);
+            var discountedAmount = promotionEngine.ApplyPromotion();
 
-            //Console.WriteLine("Total Value after applying promotion is : {0}", discountedAmount);
+            Console.WriteLine("Total Value after applying promotion is : {0}", discountedAmount);
         }
     }
 }
