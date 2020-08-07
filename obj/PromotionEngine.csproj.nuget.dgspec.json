@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/antogeobyrayan/Public/Projects/PromotionEngine/PromotionEngine.csproj": {}
+  },
+  "projects": {
+    "/Users/antogeobyrayan/Public/Projects/PromotionEngine/PromotionEngine.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/antogeobyrayan/Public/Projects/PromotionEngine/PromotionEngine.csproj",
+        "projectName": "PromotionEngine",
+        "projectPath": "/Users/antogeobyrayan/Public/Projects/PromotionEngine/PromotionEngine.csproj",
+        "packagesPath": "/Users/antogeobyrayan/.nuget/packages/",
+        "outputPath": "/Users/antogeobyrayan/Public/Projects/PromotionEngine/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/antogeobyrayan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.7.0-preview-20200519-01, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "moq": {
+              "target": "Package",
+              "version": "[4.14.5, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
