@@ -15,10 +15,17 @@ namespace Promotion
         public int Apply(IList<IProduct> products)
         {
             var product = products[0];
-            var promotionalValue = (int) Math.Floor((double)(product.ProductCount / myMinimumProductInCartToAvailPromotion));
 
-            var totalValueOfProductA = (promotionalValue * myPromotionalPrice) + 
+            return GetTotalValueOfProduct(product);
+        }
+
+        private int GetTotalValueOfProduct(IProduct product)
+        {
+            var promotionalValue = (int)Math.Floor((double)(product.ProductCount / myMinimumProductInCartToAvailPromotion));
+
+            var totalValueOfProductA = (promotionalValue * myPromotionalPrice) +
                                 ((product.ProductCount % myMinimumProductInCartToAvailPromotion) * product.ProductValue);
+                                
             return totalValueOfProductA;
         }
     }
