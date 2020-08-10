@@ -21,21 +21,35 @@ namespace Promotion
             var leastValuedProduct = Math.Min(totalUnitsC, totalUnitsD);
             var maxValueProduct = Math.Max(totalUnitsC, totalUnitsD);
 
+            int totalValueOfProducts = GetTotalValue(productC, productD, totalUnitsC, totalUnitsD, leastValuedProduct, maxValueProduct);
+
+            return totalValueOfProducts;
+        }
+
+        private int GetTotalValue(Product.IProduct productC, Product.IProduct productD, int totalUnitsC, int totalUnitsD, int leastValuedProduct, int maxValueProduct)
+        {
             var totalValueOfProducts = 0;
+            int promotionalValue = (leastValuedProduct * myPromotionalPrice);
+
             if (totalUnitsC > totalUnitsD)
             {
-                totalValueOfProducts += ((leastValuedProduct * myPromotionalPrice) + ((maxValueProduct - leastValuedProduct) * productC.ProductValue));
+                totalValueOfProducts = (promotionalValue + GetIndividualValueForProduct(productC, leastValuedProduct, maxValueProduct));
             }
             else if (totalUnitsD > totalUnitsC)
             {
-                totalValueOfProducts += ((leastValuedProduct * myPromotionalPrice) + ((maxValueProduct - leastValuedProduct) * productD.ProductValue));
+                totalValueOfProducts = (promotionalValue + GetIndividualValueForProduct(productD, leastValuedProduct, maxValueProduct));
             }
             else
             {
-                totalValueOfProducts += (leastValuedProduct * myPromotionalPrice);
+                totalValueOfProducts = promotionalValue;
             }
 
             return totalValueOfProducts;
+        }
+
+        private static int GetIndividualValueForProduct(Product.IProduct product, int leastValuedProduct, int maxValueProduct)
+        {
+            return ((maxValueProduct - leastValuedProduct) * product.ProductValue);
         }
     }
 }
