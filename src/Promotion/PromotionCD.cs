@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using IProduct = Product.IProduct;
 
 namespace Promotion
 {
@@ -10,34 +11,34 @@ namespace Promotion
 
         public IList<string> PromotionLinkedWithPlan { get => new List<string>() { "ProductC", "ProductD" }; }
 
-        public int Apply(IList<Product.IProduct> products)
+        public int Apply(IList<IProduct> products)
         {
             var productC = products.Where(product => product.ProductName.Equals("ProductC")).SingleOrDefault();
             var productD = products.Where(product => product.ProductName.Equals("ProductD")).SingleOrDefault();
 
+            return GetTotalValueOfProducts(productC, productD);
+        }
+
+        private int GetTotalValueOfProducts(IProduct productC, IProduct productD)
+        {
             var totalUnitsC = productC.ProductCount;
             var totalUnitsD = productD.ProductCount;
 
-            var leastValuedProduct = Math.Min(totalUnitsC, totalUnitsD);
+            var noOfProductsPairForPromotionApply = Math.Min(totalUnitsC, totalUnitsD);
             var maxValueProduct = Math.Max(totalUnitsC, totalUnitsD);
 
-            int totalValueOfProducts = GetTotalValue(productC, productD, totalUnitsC, totalUnitsD, leastValuedProduct, maxValueProduct);
-
-            return totalValueOfProducts;
-        }
-
-        private int GetTotalValue(Product.IProduct productC, Product.IProduct productD, int totalUnitsC, int totalUnitsD, int leastValuedProduct, int maxValueProduct)
-        {
             var totalValueOfProducts = 0;
-            int promotionalValue = (leastValuedProduct * myPromotionalPrice);
+            int promotionalValue = GetValueForProductsWithPromotionApplied(noOfProductsPairForPromotionApply);
 
             if (totalUnitsC > totalUnitsD)
             {
-                totalValueOfProducts = (promotionalValue + GetIndividualValueForProduct(productC, leastValuedProduct, maxValueProduct));
+                totalValueOfProducts = (promotionalValue + 
+                                        GetIndividualValueForProduct(productC, noOfProductsPairForPromotionApply, maxValueProduct));
             }
             else if (totalUnitsD > totalUnitsC)
             {
-                totalValueOfProducts = (promotionalValue + GetIndividualValueForProduct(productD, leastValuedProduct, maxValueProduct));
+                totalValueOfProducts = (promotionalValue + 
+                                        GetIndividualValueForProduct(productD, noOfProductsPairForPromotionApply, maxValueProduct));
             }
             else
             {
@@ -47,9 +48,15 @@ namespace Promotion
             return totalValueOfProducts;
         }
 
-        private static int GetIndividualValueForProduct(Product.IProduct product, int leastValuedProduct, int maxValueProduct)
+        private int GetValueForProductsWithPromotionApplied(int noOfProductsPairForPromotionApply)
         {
-            return ((maxValueProduct - leastValuedProduct) * product.ProductValue);
+            return (noOfProductsPairForPromotionApply * myPromotionalPrice);
+        }
+
+        private static int GetIndividualValueForProduct(IProduct product, int noOfProductsPairForPromotionApply, int maxValueProduct)
+        {
+            int noOfProductsWithoutPromotion = (maxValueProduct - noOfProductsPairForPromotionApply);
+            return noOfProductsWithoutPromotion * product.ProductValue;
         }
     }
 }
