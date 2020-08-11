@@ -5,9 +5,9 @@ namespace Promotion
 {
     public class PromotionEngine
     {
-        private readonly OrderDetails myOrderDetails;
+        private readonly IOrderDetails myOrderDetails;
 
-        public PromotionEngine(OrderDetails orderDetails)
+        public PromotionEngine(IOrderDetails orderDetails)
         {
             myOrderDetails = orderDetails;
         }
